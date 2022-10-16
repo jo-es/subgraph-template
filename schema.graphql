@@ -1,0 +1,25 @@
+type ERC20 @entity {
+  id: ID!
+  name: String!
+  address: Bytes!
+  minted: BigInt!
+  burned: BigInt!
+  totalSupply: BigInt!
+  balances: [Balance!] @derivedFrom(field: "token")
+  allowances: [Allowance!] @derivedFrom(field: "token")
+}
+
+type Balance @entity {
+  id: ID!
+  user: Bytes!
+  balance: BigInt!
+  token: ERC20!
+}
+
+type Allowance @entity {
+  id: ID!
+  owner: Bytes!
+  spender: Bytes!
+  amount: BigInt!
+  token: ERC20!
+}

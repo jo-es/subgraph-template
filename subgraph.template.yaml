@@ -1,0 +1,30 @@
+specVersion: 0.0.1
+description: Template Subgraph
+repository: '{{{repository}}}'
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ERC20
+    network: {{network}}
+    source:
+      address: '{{usdc}}'
+      abi: ERC20
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC20
+        - Balance
+        - Allowance
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: ./src/mappings.ts

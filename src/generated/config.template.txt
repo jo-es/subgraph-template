@@ -1,0 +1,11 @@
+import { TypedMap } from "@graphprotocol/graph-ts";
+
+let METADATA_CONFIG = new TypedMap<string, TypedMap<string, string>>();
+{{#Metadata}}
+let val{{idx}} = new TypedMap<string, string>();
+
+val{{idx}}.set("name", "{{name}}");
+METADATA_CONFIG.set("{{name}}", val{{idx}});
+
+{{/Metadata}}
+export { METADATA_CONFIG };

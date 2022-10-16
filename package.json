@@ -1,0 +1,16 @@
+{
+  "name": "subgraph-template",
+  "license": "MIT",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "GRAPH=dev.json NO_DEPLOY=true ./deploy.sh",
+    "deploy": "./deploy.sh",
+    "test": "./test.sh"
+  },
+  "devDependencies": {
+    "matchstick-as": "^0.5.0",
+    "@graphprotocol/graph-cli": "^0.35.0",
+    "@graphprotocol/graph-ts": "^0.28.1",
+    "mustache": "^4.2.0"
+  }
+}

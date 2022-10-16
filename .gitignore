@@ -1,0 +1,16 @@
+# node
+node_modules/
+
+# secrets
+.env
+
+# yarn
+yarn-debug.log*
+yarn-error.log*
+
+# Generated Files
+/generated
+/build
+/data
+subgraph.yaml
+src/generated/config.ts
